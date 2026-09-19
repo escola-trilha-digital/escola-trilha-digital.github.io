@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Escola Trilha Digital · escola fictícia de demonstração</title>
+<meta name="description" content="Escola fictícia criada para demonstrar o AFL (Agents for Life). Não é uma empresa real.">
+<style>
+  :root {
+    --ink: #1B1F24; --muted: #5B6573; --ground: #F7F9FC; --surface: #FFFFFF; --line: #E3E8EF;
+    --primaria: #1F4E79; --primaria-soft: #E8F0F8; --destaque: #F28C28; --destaque-ink: #1B1F24;
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #E6ECF2; --muted: #9AA6B4; --ground: #0F151C; --surface: #161E27; --line: #26313D;
+      --primaria: #8DB8E2; --primaria-soft: #172636; --destaque: #F5A04E; --destaque-ink: #1B1F24; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--sans); line-height: 1.55; font-size: 17px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; }
+  h1, h2, h3 { line-height: 1.12; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: var(--primaria); }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--primaria); outline-offset: 3px; }
+
+  .aviso-demo { background: var(--primaria); color: #fff; font-size: 13.5px; text-align: center; padding: 8px 16px; }
+  .aviso-demo b { font-weight: 700; }
+
+  header.topo .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+  .marca { font-weight: 800; font-size: 20px; color: var(--primaria); text-decoration: none; letter-spacing: -0.01em; }
+  .marca span { color: var(--destaque); }
+  nav.menu { display: flex; gap: 20px; flex-wrap: wrap; font-size: 15px; }
+  nav.menu a { color: var(--muted); text-decoration: none; }
+  nav.menu a:hover { color: var(--ink); }
+
+  .btn { display: inline-block; background: var(--destaque); color: var(--destaque-ink); font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 8px; font-size: 16px; }
+  .btn:hover { filter: brightness(0.96); }
+  .btn.secundario { background: transparent; color: var(--primaria); border: 2px solid var(--primaria); padding: 11px 20px; }
+
+  .hero { padding-block: 40px 56px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; }
+  .hero .selo { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--primaria); background: var(--primaria-soft); padding: 5px 10px; border-radius: 999px; }
+  .hero h1 { font-size: clamp(36px, 5.2vw, 58px); letter-spacing: -0.02em; margin-top: 14px; }
+  .hero h1 em { font-style: normal; color: var(--primaria); }
+  .hero .sub { color: var(--muted); font-size: 19px; margin-top: 16px; max-width: 46ch; }
+  .hero .acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .turma { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; gap: 14px; }
+  .turma h2 { font-size: 22px; }
+  .turma dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 0; font-size: 15.5px; }
+  .turma dt { color: var(--muted); }
+  .turma dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .turma .preco { font-size: 34px; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .turma .preco small { font-size: 15px; font-weight: 400; color: var(--muted); }
+
+  section { padding-block: 52px; border-top: 1px solid var(--line); }
+  .titulo-sec { display: grid; gap: 8px; margin-bottom: 28px; max-width: 60ch; }
+  .titulo-sec h2 { font-size: 32px; letter-spacing: -0.01em; }
+  .titulo-sec p { color: var(--muted); }
+
+  .cursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .curso { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 10px; align-content: start; }
+  .curso .tipo { font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .curso h3 { font-size: 21px; }
+  .curso .valor { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .curso p { color: var(--muted); font-size: 15.5px; }
+  .curso.destaque { border: 2px solid var(--primaria); }
+
+  .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
+  .passo { display: grid; gap: 6px; }
+  .passo b { font-size: 18px; }
+  .passo p { color: var(--muted); font-size: 15.5px; }
+
+  .depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  blockquote { margin: 0; background: var(--surface); border-left: 3px solid var(--destaque); padding: 16px 18px; border-radius: 0 10px 10px 0; display: grid; gap: 10px; }
+  blockquote p { font-size: 16px; }
+  blockquote cite { font-style: normal; color: var(--muted); font-size: 14px; }
+  .nota { color: var(--muted); font-size: 13.5px; margin-top: 14px; }
+
+  .garantia { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .garantia div { display: grid; gap: 6px; }
+  .garantia b { font-size: 34px; font-weight: 800; color: var(--primaria); font-variant-numeric: tabular-nums; }
+  .garantia p { color: var(--muted); font-size: 15.5px; }
+
+  .fale { background: var(--primaria-soft); border-radius: 16px; padding: 32px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; }
+  .fale h2 { font-size: 30px; }
+  .fale p { color: var(--muted); margin-top: 10px; }
+  .fale .perguntas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .fale .perguntas span { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; }
+  .fale .lado { display: grid; gap: 10px; justify-items: start; }
+  .fale .lado small { color: var(--muted); font-size: 13px; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: 14px; display: grid; gap: 8px; }
+  footer b { color: var(--ink); }
+
+  @media (max-width: 760px) {
+    .hero, .fale { grid-template-columns: 1fr; }
+    .hero { padding-top: 20px; }
+    .fale { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+  <div class="aviso-demo" role="note"><b>Escola fictícia.</b> Esta página demonstra o AFL (Agents for Life). Não é uma empresa real e nada aqui está à venda.</div>
+
+  <header class="topo">
+    <div class="wrap">
+      <a class="marca" href="#">Trilha Digital <span>●</span></a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#cursos">Cursos</a><a href="#como">Como funciona</a><a href="#garantia">Garantia</a><a href="#fale">Fale com a gente</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div>
+        <span class="selo">Inscrições abertas · Turma 7</span>
+        <h1>Aprenda a vender com <em>anúncios</em>, do zero.</h1>
+        <p class="sub">A escola online de marketing digital para quem quer tirar o negócio do boca a boca: estratégia, campanhas e números, com prática desde a primeira semana.</p>
+        <div class="acoes">
+          <a class="btn" href="https://share.agentsforlife.org/a/92aa30ce-333e-4bcd-8948-5b2a9634d63e" target="_blank" rel="noopener">Tire suas dúvidas agora</a>
+          <a class="btn secundario" href="#cursos">Ver os cursos</a>
+        </div>
+      </div>
+      <aside class="turma" aria-label="Turma 7">
+        <h2>Tráfego Pago do Zero · Turma 7</h2>
+        <p class="preco">R$ 997 <small>ou até 10× sem juros nesta turma</small></p>
+        <dl>
+          <dt>Inscrições</dt><dd>até 22/09/2026, 23h59</dd>
+          <dt>Início das aulas</dt><dd>29/09/2026</dd>
+          <dt>Acesso</dt><dd>2 anos, com certificado</dd>
+          <dt>Garantia</dt><dd>15 dias nesta turma</dd>
+        </dl>
+      </aside>
+    </div>
+
+    <section id="cursos">
+      <div class="wrap">
+        <div class="titulo-sec"><h2>Cursos</h2><p>Três caminhos, do primeiro anúncio à escala.</p></div>
+        <div class="cursos">
+          <article class="curso destaque">
+            <span class="tipo">Por turma</span>
+            <h3>Tráfego Pago do Zero</h3>
+            <p class="valor">R$ 997</p>
+            <p>Anúncios pagos do começo: estratégia, criação de campanhas, pixel e leitura de métricas. Próxima turma depois desta: novembro.</p>
+          </article>
+          <article class="curso">
+            <span class="tipo">Início imediato</span>
+            <h3>Copy que Converte</h3>
+            <p class="valor">R$ 497</p>
+            <p>Escrita persuasiva para página de vendas, anúncio e e-mail. Vendido o ano todo, você começa hoje.</p>
+          </article>
+          <article class="curso">
+            <span class="tipo">Por aplicação</span>
+            <h3>Mentoria Escala</h3>
+            <p class="valor">R$ 2.997</p>
+            <p>Seis meses de encontros ao vivo, com vagas limitadas, para quem já vende e quer crescer com método.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como">
+      <div class="wrap">
+        <div class="titulo-sec"><h2>Como funciona</h2><p>Aula curta, prática no mesmo dia, dúvida respondida na semana.</p></div>
+        <div class="passos">
+          <div class="passo"><b>Aulas curtas</b><p>Vídeos de 10 a 20 minutos, liberados por módulo, para assistir no celular.</p></div>
+          <div class="passo"><b>Prática guiada</b><p>Cada módulo termina com uma tarefa na sua própria conta de anúncios.</p></div>
+          <div class="passo"><b>Tutores</b><p>Dúvidas respondidas pelos tutores da escola durante a turma.</p></div>
+          <div class="passo"><b>Certificado</b><p>Ao concluir todas as aulas e a prova final com nota mínima 7.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="titulo-sec"><h2>Quem já fez</h2></div>
+        <div class="depoimentos">
+          <blockquote><p>"Saí do impulsionar post para campanha com público e orçamento. Na terceira semana eu já sabia ler o custo por venda."</p><cite>Carla M., Recife · Turma 5</cite></blockquote>
+          <blockquote><p>"O curso de copy mudou a página da minha loja. Eu escrevia sobre o produto; agora escrevo para quem compra."</p><cite>Diego S., Curitiba · Copy que Converte</cite></blockquote>
+          <blockquote><p>"Na mentoria organizei o funil inteiro. O que mais valeu foram os encontros ao vivo."</p><cite>Renato A., Belo Horizonte · Mentoria Escala</cite></blockquote>
+        </div>
+        <p class="nota">Depoimentos fictícios, como a escola.</p>
+      </div>
+    </section>
+
+    <section id="garantia">
+      <div class="wrap">
+        <div class="titulo-sec"><h2>Garantia</h2><p>Você pode desistir sem precisar explicar.</p></div>
+        <div class="garantia">
+          <div><b>7 dias</b><p>Em qualquer curso, reembolso integral em até 7 dias corridos da compra, como manda o Código de Defesa do Consumidor.</p></div>
+          <div><b>15 dias</b><p>Na Turma 7 do Tráfego Pago do Zero, garantia estendida para quem assistiu a menos de 20% das aulas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fale">
+      <div class="wrap">
+        <div class="fale">
+          <div>
+            <h2>Ficou com dúvida? Pergunte.</h2>
+            <p>Nosso assistente responde na hora sobre cursos, preços, turmas e garantia. Você também pode entrar na lista de espera da Turma 8.</p>
+            <div class="perguntas" aria-label="Exemplos de pergunta">
+              <span>Quanto custa o Tráfego Pago do Zero?</span><span>Quando abre a Turma 8?</span><span>Posso parcelar?</span>
+            </div>
+          </div>
+          <div class="lado">
+            <a class="btn" href="https://share.agentsforlife.org/a/92aa30ce-333e-4bcd-8948-5b2a9634d63e" target="_blank" rel="noopener">Falar com o assistente</a>
+            <small>Abre numa nova aba. Atendimento feito por um agente criado no AFL.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><b>Escola Trilha Digital</b> · escola fictícia, criada para demonstrar o AFL (Agents for Life).</p>
+      <p>Empresa, cursos, preços, pessoas e depoimentos são inventados. Não é possível comprar nada nesta página.</p>
+    </div>
+  </footer>
+</body>
+</html>
